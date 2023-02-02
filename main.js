@@ -34,8 +34,8 @@ $(document).ready(function () {
                 $("#pokemonImage").attr("src", response.sprites.front_default);
                 $("#pokemonName").text(response.name);
                 $("#pokemonId").text(`ID: ${response.id}`);
-                $("#pokemonWeight").text(`Peso: ${response.weight} kg`);
-                $("#pokemonHeight").text(`Altura: ${response.height} cm`);
+                $("#pokemonWeight").text(`Peso: ${response.weight}`);
+                $("#pokemonHeight").text(`Altura: ${response.height}`);
                 $("#pokemonType").text(`Tipo: ${response.types[0].type.name}`);
 
                 displaySearchHistory();
