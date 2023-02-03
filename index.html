@@ -15,7 +15,7 @@
     <div class="container mt-5 p-5 ">
         <div class="input-group mb-3">
             <input type="text" class="form-control" id="pokemonInput"
-                placeholder="Ingresa el nombre o ID del pokemon" />
+                placeholder="Ingresa el nombre o ID del pokemon" oninput="this.value = this.value.toLowerCase()" />
             <div class="input-group-append">
                 <button class="btn btn-danger" id="searchBtn">BUSCAR</button>
             </div>
