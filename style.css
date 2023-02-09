@@ -21,13 +21,4 @@ body {
         background-image: url(383749.jpg);
         background-size: cover;
     }
-
-   
 }
-
-@media only screen and (max-width: 600px) {
-    .logo-titulo img {
-      width: 150px;
-      height: auto;
-    }
-  }
