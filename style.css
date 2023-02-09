@@ -24,3 +24,10 @@ body {
 
    
 }
+
+@media only screen and (max-width: 600px) {
+    .logo-titulo img {
+      width: 150px;
+      height: auto;
+    }
+  }
