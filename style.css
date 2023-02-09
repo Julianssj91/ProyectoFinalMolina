@@ -6,12 +6,24 @@
 }
 
 
-body{
+body {
     background-image: url(383749.jpg);
     background-attachment: fixed;
     background-size: cover;
 }
 
-.cajita{
+.cajita {
     background-color: rgba(255, 255, 255, 0.747);
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-image: url(383749.jpg);
+        background-size: contain;
+    }
+
+    .logo-titulo img {
+        width: 150px;
+        height: auto;
+    }
 }
