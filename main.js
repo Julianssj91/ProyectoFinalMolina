@@ -1,10 +1,7 @@
-
-
-
 $(document).ready(function () {
     Swal.fire({
         title: "Bienvenido a mi Pokedex",
-        text: "Aqui podras buscar tu Pokemon favorito por nombre o numero",
+        text: "Aqui podrás buscar tu Pokemon favorito por nombre o número",
         imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP63KFodIM-yR5YUmOQV3acijeDMZ7JWhz7JD7fdniRA&s",
         confirmButtonColor: "#FF0000",
         showConfirmButton: true,
@@ -14,11 +11,9 @@ $(document).ready(function () {
     $("#searchBtn").click(function () {
         let pokemonInput = $("#pokemonInput").val();
 
-        $.ajax({
-            type: "GET",
-            url: `https://pokeapi.co/api/v2/pokemon/${pokemonInput}`,
-            success: function (response) {
-
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonInput}`)
+            .then(response => response.json())
+            .then(response => {
                 let pokemonInfo = {
                     id: response.id,
                     name: response.name,
@@ -39,17 +34,16 @@ $(document).ready(function () {
                 $("#pokemonType").text(`Tipo: ${response.types[0].type.name}`);
 
                 displaySearchHistory();
-            },
-            error: function () {
+            })
+            .catch(error => {
                 Swal.fire({
                     title: "Pokemon no encontrado!",
-                    text: "Quiza has escrito mal su nombre o ID... o quiza sea un Pokemon nunca antes visto!",
+                    text: "Quizá has escrito mal su nombre o ID... o quizá sea un Pokemon nunca antes visto!",
                     imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP63KFodIM-yR5YUmOQV3acijeDMZ7JWhz7JD7fdniRA&s",
                     confirmButtonColor: "#FF0000",
                     showConfirmButton: true,
                 });
-            },
-        });
+            });
     });
 
     function displaySearchHistory() {
@@ -59,16 +53,13 @@ $(document).ready(function () {
             let pokemon = searchHistory[i];
 
             let row = `
-        <tr>
-          <td>${pokemon.id}</td>
-          <td>${pokemon.name}</td>
-          <td>${pokemon.weight}kg</td>
-          <td>${pokemon.height}cm</td>
-          <td>${pokemon.type}</td>
-        </tr>
-      `;
-
-            $("#searchHistory").append(row);
+            <tr>
+            <td>${pokemon.id}</td>
+            <td>${pokemon.name}</td>
+            <td>${pokemon.weight}kg</td>
+            <td>${pokemon.height}cm</td>
+            <td>${pokemon.type}</td>
+            </tr>`; $("#searchHistory").append(row);
         }
     }
 
@@ -82,4 +73,9 @@ $(document).ready(function () {
         searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
         displaySearchHistory();
     }
+
 });
+
+
+
+
