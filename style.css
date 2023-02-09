@@ -16,14 +16,11 @@ body {
     background-color: rgba(255, 255, 255, 0.747);
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
     body {
         background-image: url(383749.jpg);
         background-size: cover;
     }
 
-    .logo-titulo img {
-        width: 150px;
-        height: auto;
-    }
+   
 }
