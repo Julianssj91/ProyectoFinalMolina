@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,34 +8,47 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="shortcut icon" href="pokeball.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
     <title>Pokedex</title>
 </head>
+
 <body>
-    <div class="container d-flex justify-content-center mt-5 bg-transparent">
-        <div class="logo-titulo align-self-center"><img src="https://archives.bulbagarden.net/media/upload/4/4b/Pok%C3%A9dex_logo.png" alt=""></div>
+
+    <div class="container d-flex justify-content-center m-5 bg-transparent">
+        <div class="logo-titulo align-self-center"><img
+                src="Pokédex_logo.png" alt=""></div>
     </div>
-<div class="container cajita">
-    <div class="container mt-5 p-5 ">
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="pokemonInput"
-                placeholder="Ingresa el nombre o ID del pokemon" oninput="this.value = this.value.toLowerCase()" />
-            <div class="input-group-append">
-                <button class="btn btn-danger" id="searchBtn">BUSCAR</button>
+
+    <div class="container cajita mb-5">
+
+        <div class="container mt-5 p-5 ">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="pokemonInput"
+                    placeholder="Ingresa el nombre o ID del pokemon" oninput="this.value = this.value.toLowerCase()" />
+                <div class="input-group-append">
+                    <button class="btn btn-danger" id="searchBtn">BUSCAR</button>
+                </div>
             </div>
+
+            <center>
+                <div class="card mb-3 d-none border-dark" id="pokemonInfo" style="width: 14rem;">
+                    <img src="" class="card-img-top h-75 " alt="Imagen del Pokemon" id="pokemonImage" />
+                    <div class="card-body text-uppercase">
+                        <h5 class="card-title" id="pokemonName"></h5>
+                        <p class="card-text" id="pokemonId"></p>
+                        <p class="card-text" id="pokemonWeight"></p>
+                        <p class="card-text" id="pokemonHeight"></p>
+                        <p class="card-text" id="pokemonType"></p>
+                    </div>
+            </center>
         </div>
-        <center>
-            <div class="card mb-3 d-none" id="pokemonInfo" style="width: 14rem;">
-            <img src="" class="card-img-top h-75" alt="Imagen del Pokemon" id="pokemonImage" />
-            <div class="card-body text-uppercase">
-                <h5 class="card-title" id="pokemonName"></h5>
-                <p class="card-text" id="pokemonId"></p>
-                <p class="card-text" id="pokemonWeight"></p>
-                <p class="card-text" id="pokemonHeight"></p>
-                <p class="card-text" id="pokemonType"></p>
-            </div></center>
-        </div>
-        <table class="table text-uppercase">
+
+        <table class="table text-uppercase mb-5">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
@@ -46,16 +60,20 @@
             </thead>
             <tbody id="searchHistory"></tbody>
         </table>
-        <button class="btn btn-danger mt-3" id="clearHistory">
-            Borrar historial
-        </button>
+
+        <button class="btn btn-danger m-5" id="clearHistory">BORRAR HISTORIAL</button>
+
+
     </div>
-</div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"
         </script></script>
-        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <script src="main.js"></script>
+
 </body>
+
 </html>
